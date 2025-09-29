@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Navratri Greeting</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("https://i.ibb.co/ncWr5WS/durga-maa.png") no-repeat center center/cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Nine Colors Background Glow */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(45deg,
+        #ff9933, #ff3399, #9933ff,
+        #ff0000, #00ccff, #33cc33,
+        #ffff00, #ff66cc, #ff6600);
+      background-size: 600% 600%;
+      animation: navratriColors 15s infinite;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    @keyframes navratriColors {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
+      max-width: 600px;
+      animation: fadeIn 2s ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px gold, 0 0 20px red;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px red, 0 0 20px yellow;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      margin-top: 20px;
+    }
+
+    .slideshow img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 5px solid gold;
+      box-shadow: 0 0 20px red, 0 0 40px yellow;
+      display: none;
+      margin: auto;
+    }
+
+    .slideshow p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px black;
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: transparent;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+      z-index: 1;
+    }
+
+    @keyframes explode {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(4); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌸 Happy Navratri 🌸</h1>
+    <p>May Goddess Durga bless you with strength, wisdom, and happiness.</p>
+    <div class="message">💃✨ Wishing you a joyful and blessed Navratri! ✨🕺</div>
+
+    <!-- Slideshow of 9 Goddesses -->
+    <div class="slideshow">
+      <img id="goddessImg" src="">
+      <p id="goddessName"></p>
+    </div>
+  </div>
+<!--<button onclick="playMusic()">🔊 Play Music</button>-->
+<script>
+  function playMusic() {
+    let music = document.getElementById("music");
+    music.play();
+  }
+</script>
+  <!-- Background music -->
+ <!--<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>-->
+<audio id="music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop muted></audio>
+  <script>
+    const goddesses = [
+      {name: "Day 1 - Maa Shailaputri 🌺", img: "https://i.pinimg.com/originals/3c/b9/24/3cb924fbeeb19317fbfa76b04b8eefaa.jpg"},
+      {name: "Day 2 - Maa Brahmacharini 🌸", img: "https://png.pngtree.com/png-clipart/20220917/original/pngtree-navratri-goddess-brahmacharini-cute-durga-mata-different-forms-in-indian-festival-png-image_8621392.png"},
+      {name: "Day 3 - Maa Chandraghanta 🌙", img: "https://png.pngtree.com/png-clipart/20220926/original/pngtree-chandraghanta-mata-happy-navratri-day-3-of-navratra-goddess-durga-forms-png-image_8632724.png"},
+      {name: "Day 4 - Maa Kushmanda ☀", img: "https://png.pngtree.com/png-vector/20220929/ourlarge/pngtree-kushmanda-devi-day-4-navratri-avatars-of-durga-mata-cute-indian-png-image_6224523.png"},
+      {name: "Day 5 - Maa Skandamata 👶", img: "https://png.pngtree.com/png-vector/20220930/ourlarge/pngtree-skandamata-ji-navratri-day-5-durga-mata-avatars-different-forms-of-png-image_6240487.png"},
+      {name: "Day 6 - Maa Katyayani 🪔", img: "https://png.pngtree.com/png-vector/20221001/ourlarge/pngtree-katyayini-devi-day-6-navratri-different-avatars-of-durga-maa-happy-png-image_6249119.png"},
+      {name: "Day 7 - Maa Kalaratri ⚡", img: "https://png.pngtree.com/png-vector/20221003/ourlarge/pngtree-kaalratri-devi-day-7-of-navratri-goddess-durga-seventh-avatar-kalratri-png-image_6264449.png"},
+      {name: "Day 8 - Maa Mahagauri 🤍", img: "https://png.pngtree.com/png-vector/20221002/ourlarge/pngtree-mahagauri-ji-eight-avatar-of-durga-mata-navratri-goddess-forms-ashtami-png-image_6253553.png"},
+      {name: "Day 9 - Maa Siddhidatri 🌟", img: "https://i.pinimg.com/736x/e5/c9/30/e5c9302b3b1e1fb9f61728053dbfc0cb.jpg"}
+
+  ]
+    let index = 0;
+    function showGoddess() {
+      let img = document.getElementById("goddessImg");
+      let name = document.getElementById("goddessName");
+      img.src = goddesses[index].img;
+      name.innerText = goddesses[index].name;
+      // Show current image
+      img.style.display = "block";
+
+      index = (index + 1) % goddesses.length;
+    }
+
+    window.onload = () => {
+      let music = document.getElementById("music");
+      music.play().catch(() => {
+        console.log("Autoplay blocked, user interaction needed.");
+      });
+
+      // Fireworks loop
+      setInterval(() => {
+        for (let i = 0; i < 5; i++) {
+          createFirework();
+        }
+      }, 800);
+
+      // Goddess slideshow
+      showGoddess();
+      setInterval(showGoddess, 3000);
+    };
+
+    function createFirework() {
+      let firework = document.createElement("div");
+      firework.classList.add("firework");
+
+      // Random position
+      firework.style.left = Math.random() * window.innerWidth + "px";
+      firework.style.top = Math.random() * window.innerHeight + "px";
+
+      // Random color
+     // firework.style.background = hsl(${Math.random() * 360}, 100%, 50%);
+firework.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+
+      document.body.appendChild(firework);
+
+      // Remove after animation
+      setTimeout(() => {
+        firework.remove();
+      }, 1000);
+    }
+document.body.addEventListener("click", () => {
+  let music = document.getElementById("music");
+  music.muted = false;
+  music.play();
+});
+  </script>
+</body>
+</html>
