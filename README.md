@@ -29,7 +29,7 @@ This project showcases creativity with animations, slideshow, and festive effect
 * JavaScript (DOM, Events, Animations)
 
 # 🚀 Live Demo
-👉 
+👉 https://goutamrana2006.github.io/Navratri-Special/
 
 # 📂 Project Structure
 ```id="k9m3q1"
